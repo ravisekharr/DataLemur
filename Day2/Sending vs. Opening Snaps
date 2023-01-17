@@ -1,0 +1,21 @@
+Problem: https://datalemur.com/questions/time-spent-snaps
+
+Note: See SUM FILTER commands
+
+Solution:
+
+SELECT age_bucket,
+ROUND(s*100.0/(s+o),2) as send_perc,
+ROUND(o*100.0/(s+o),2) as open_perc 
+FROM age_breakdown
+LEFT JOIN
+(
+SELECT T1.user_id,SUM(T1.send) as S,SUM(T1.open) as O
+FROM (
+    SELECT *,
+    CASE WHEN activity_type='send' THEN time_spent ELSE 0 END AS send,
+    CASE WHEN activity_type='open' THEN time_spent ELSE 0 END AS open
+    FROM activities) T1
+  GROUP BY T1.user_id) T2
+ON age_breakdown.user_id=T2.user_id
+ORDER BY age_bucket;
