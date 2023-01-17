@@ -1,0 +1,14 @@
+Problem: https://datalemur.com/questions/user-retention
+
+Solution:
+
+SELECT T2.D1 as month,COUNT(*) AS monthly_active_users FROM (
+SELECT user_id,
+EXTRACT(MONTH FROM event_date) AS D1,
+coalesce(EXTRACT(MONTH FROM last),0) AS D2
+FROM (
+SELECT * ,LAG(event_date) OVER (PARTITION BY user_id ORDER BY event_date) AS last
+FROM user_actions) T1) T2
+WHERE T2.D1-T2.D2=1 AND T2.D1=7 
+GROUP BY T2.D1
+ORDER by month;
