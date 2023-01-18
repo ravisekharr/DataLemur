@@ -1,0 +1,6 @@
+Problem: https://datalemur.com/questions/tesla-unfinished-parts
+
+Solution:
+SELECT DISTINCT part 
+FROM parts_assembly
+WHERE finish_date IS NULL;
