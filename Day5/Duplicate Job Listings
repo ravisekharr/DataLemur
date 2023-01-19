@@ -1,0 +1,9 @@
+Problem: https://datalemur.com/questions/duplicate-job-listings
+
+Solution:
+
+SELECT COUNT (DISTINCT T1.company_id) as co_w_duplicate_jobs
+FROM (SELECT company_id
+FROM job_listings
+GROUP BY company_id,description
+HAVING COUNT(*) >1)T1;
