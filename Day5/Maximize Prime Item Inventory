@@ -1,0 +1,26 @@
+Problem: https://datalemur.com/questions/prime-warehouse-storage
+
+Solution:
+WITH sales_sum(item_type,c,s) AS
+(
+SELECT item_type,COUNT(*) as c,SUM(square_footage) as s
+FROM inventory
+GROUP BY item_type),
+
+prime_eligible(item_type,items,space) AS
+(SELECT sales_sum.item_type,
+FLOOR(500000/sales_sum.s) AS items,
+sales_sum.s AS space
+FROM sales_sum
+WHERE sales_sum.item_type='prime_eligible' 
+),
+overall(item_type,space) AS
+(SELECT sales_sum.item_type,
+CASE WHEN sales_sum.item_type='prime_eligible' THEN sales_sum.c*prime_eligible.items
+ELSE sales_sum.c*FLOOR((500000-(prime_eligible.space*prime_eligible.items))/sales_sum.s) END
+AS item_count
+FROM
+sales_sum,prime_eligible
+)
+SELECT * FROM overall
+ORDER BY space DESC;
