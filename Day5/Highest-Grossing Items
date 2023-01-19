@@ -1,0 +1,14 @@
+Problem: https://datalemur.com/questions/sql-highest-grossing
+
+Solution:
+SELECT category,product,total_spend
+FROM (
+SELECT *,
+ROW_NUMBER() OVER (PARTITION BY category ORDER BY total_spend DESC) as r
+FROM (
+SELECT category,product,SUM(spend) as total_spend
+FROM product_spend
+WHERE EXTRACT(YEAR FROM transaction_date)=2022
+GROUP BY category,product
+ORDER BY category) T1) T2
+WHERE r<3;
