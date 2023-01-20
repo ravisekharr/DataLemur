@@ -1,0 +1,32 @@
+Problem: https://datalemur.com/questions/median-search-freq
+
+Solution:
+WITH pos(e) AS (SELECT 
+CASE WHEN SUM(num_users)%2=0 THEN 0.5+(SUM(num_users)/2)
+ELSE CEIL(SUM(num_users)/2)
+END AS e
+FROM 
+search_frequency),
+counts AS (
+SELECT searches,SUM(num_users) OVER(ORDER BY searches) as s FROM search_frequency)
+SELECT ROUND(T1.median/2.0,1) as median
+FROM (SELECT *,
+case when CEIL(pos.e)=pos.e THEN searches
+ELSE SUM(counts.searches) OVER (ORDER BY counts.searches ROWS BETWEEN CURRENT ROW AND 1 FOLLOWING)
+END as median,
+ROW_NUMBER() OVER(ORDER BY searches DESC) AS r
+FROM counts,pos WHERE counts.s<=pos.e+1) T1
+where T1.r=2;
+
+Suggested solution:
+WITH searches_expanded AS (
+  SELECT searches
+  FROM search_frequency
+  GROUP BY 
+    searches, 
+    GENERATE_SERIES(1, num_users))
+
+SELECT 
+  ROUND(PERCENTILE_CONT(0.50) WITHIN GROUP (
+    ORDER BY searches)::DECIMAL, 1) AS  median
+FROM searches_expanded;
