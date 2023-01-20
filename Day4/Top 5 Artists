@@ -1,0 +1,21 @@
+Problem: https://datalemur.com/questions/top-fans-rank
+
+Solution:
+SELECT * FROM (
+SELECT artists.artist_name,DENSE_RANK() OVER(ORDER BY s DESC) AS artist_rank FROM
+artists
+LEFT JOIN
+(
+SELECT artist_id,SUM(T1.C) AS S FROM
+songs
+LEFT JOIN
+(
+SELECT song_id,COUNT(*) as C
+FROM global_song_rank
+WHERE rank<=10
+GROUP BY song_id)T1
+ON songs.song_id=T1.song_id
+GROUP BY artist_id) T2
+ON artists.artist_id=T2.artist_id)T3
+WHERE T3.artist_rank<=5
+ORDER BY artist_rank,t3.artist_name;
