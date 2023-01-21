@@ -1,0 +1,8 @@
+Problem: https://datalemur.com/questions/signup-confirmation-rate
+
+Solution:
+SELECT ROUND(1.0*SUM(c)/COUNT(c),2) AS confirm_rate
+FROM(
+SELECT CASE WHEN signup_action='Confirmed' THEN 1
+ELSE 0 END AS c
+FROM texts) T1
