@@ -1,7 +1,7 @@
 # DataLemur
 ## SQL practice problems from https://datalemur.com?referralCode=6GoZJBkG
 ##
-#### |Day|Problem|Concepts|Level|Link|
+|Day|Problem|Concepts|Level|Link|
 |---|-------|--------|-----|----|
 |Day1|Data Science Skills|IN, GROUP BY|Easy|https://datalemur.com/questions/matching-skills|
 ||Laptop vs Mobile Viewership|SUM, CASE WHEN|Easy|https://datalemur.com/questions/laptop-mobile-viewership|
