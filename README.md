@@ -1,5 +1,5 @@
 # DataLemur
-SQL practice problems from https://datalemur.com?referralCode=6GoZJBkG
+## SQL practice problems from https://datalemur.com?referralCode=6GoZJBkG
 
 
 |Day|Problem|Concepts|Level|Link|
