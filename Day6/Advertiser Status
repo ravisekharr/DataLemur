@@ -1,0 +1,24 @@
+Problem: https://datalemur.com/questions/updated-status
+
+Solution:
+SELECT user_id,
+CASE 
+WHEN paid=0 THEN 'CHURN'
+WHEN paid=1 AND status IS NULL THEN 'NEW'
+WHEN paid=1 AND status='CHURN' THEN 'RESURRECT'
+ELSE 'EXISTING'
+END
+FROM (
+SELECT 
+CASE WHEN advertiser.user_id IS NULL THEN daily_pay.user_id
+ELSE advertiser.user_id
+END as user_id,
+status,
+CASE WHEN daily_pay.paid IS NULL THEN 0
+ELSE 1
+END as Paid
+FROM advertiser
+FULL OUTER JOIN
+daily_pay
+ON advertiser.user_id=daily_pay.user_id)T1
+ORDER BY user_id;
