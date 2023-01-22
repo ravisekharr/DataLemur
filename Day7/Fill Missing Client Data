@@ -1,0 +1,25 @@
+Problem:https://datalemur.com/questions/fill-missing-product
+
+Solution:
+WITH ct AS(
+SELECT *
+FROM(
+SELECT T1.product_id as product_id,T2.category as category,
+T1.name as name,T2.r as r
+FROM products T1
+JOIN
+(SELECT product_id,category,RANK() OVER(ORDER BY product_id) as r
+FROM products
+WHERE category IN(
+SELECT category
+FROM products
+GROUP BY category
+HAVING COUNT(*)=1))T2
+ON T1.product_id>=T2.product_id
+ORDER BY product_id,T2.r)T3)
+
+SELECT T1.product_id,T1.category,T1.name FROM ct T1 JOIN
+(SELECT product_id,MAX(r) as mr FROM ct
+GROUP BY product_id)T2
+ON T1.product_id=T2.product_id
+AND T1.r=T2.mr
