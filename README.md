@@ -21,3 +21,6 @@
 |Day6|Advertiser Status|CASE WHEN|Hard|https://datalemur.com/questions/updated-status|
 ||Signup Activation Rate|CASE WHEN|Medium|https://datalemur.com/questions/signup-confirmation-rate|
 ||Teams Power Users|GROUP BY, DATE EXTRACT|Easy|https://datalemur.com/questions/teams-power-users|
+|Day7|3-Topping Pizzas|CTE,Self join|HARD|https://datalemur.com/questions/pizzas-topping-cost|
+||Fill Missing Client Data|JOIN, ROW_NUMBER()|Medium|https://datalemur.com/questions/fill-missing-product|
+||Cities with completed trade|JOIN, GROUP BY|Easy|https://datalemur.com/questions/completed-trades|
