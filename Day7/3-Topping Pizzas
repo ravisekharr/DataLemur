@@ -1,0 +1,13 @@
+Problem:https://datalemur.com/questions/pizzas-topping-cost
+
+Solution:
+WITH new_T AS
+(SELECT *,ROW_NUMBER() OVER (ORDER BY topping_name) as r
+FROM pizza_toppings
+ORDER BY topping_name)
+
+SELECT CONCAT(T1.topping_name,',',T2.topping_name,',',T3.topping_name) as n,
+T1.ingredient_cost+T2.ingredient_cost+T3.ingredient_cost as c
+FROM new_T T1,new_T T2,new_T T3
+WHERE T1.r<T2.r AND T1.r<T3.r AND T2.r<T3.r
+ORDER BY c DESC,n
