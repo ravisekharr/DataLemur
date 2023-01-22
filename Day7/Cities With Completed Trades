@@ -1,0 +1,15 @@
+Problem: https://datalemur.com/questions/completed-trades
+
+Solution:
+SELECT city,SUM(T2.c) as total_orders FROM (
+SELECT users.user_id,city,T1.c as c
+FROM
+users
+LEFT JOIN
+(SELECT user_id,COUNT(*) as c FROM trades
+WHERE status='Completed'
+GROUP BY user_id)T1
+ON users.user_id=T1.user_id)T2
+GROUP BY city
+ORDER BY total_orders DESC
+LIMIT 3;
