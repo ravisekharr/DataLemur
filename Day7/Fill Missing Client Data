@@ -23,3 +23,20 @@ SELECT T1.product_id,T1.category,T1.name FROM ct T1 JOIN
 GROUP BY product_id)T2
 ON T1.product_id=T2.product_id
 AND T1.r=T2.mr
+
+Suggested solution:
+WITH fill_products AS (
+SELECT
+  product_id,
+  category,
+  name,
+  COUNT(category) OVER (ORDER BY product_id) AS category_group
+FROM products)
+
+SELECT
+  product_id,
+  FIRST_VALUE (category) OVER (
+  	PARTITION BY category_group
+    ORDER BY product_id) AS category,
+  name
+FROM fill_products;
