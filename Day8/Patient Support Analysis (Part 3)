@@ -1,0 +1,13 @@
+Problem: https://datalemur.com/questions/patient-call-history
+
+Solution:
+WITH T1 AS
+(SELECT policy_holder_id,
+call_received as l1,
+LAG(call_received) OVER(PARTITION BY policy_holder_id ORDER BY call_received) as l2
+FROM callers)
+
+SELECT COUNT(DISTINCT policy_holder_id)
+FROM T1
+WHERE EXTRACT(DAYS FROM l1-l2)<7
+AND l2 is not null
