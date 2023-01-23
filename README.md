@@ -24,3 +24,6 @@
 |Day7|3-Topping Pizzas|CTE,Self join|HARD|https://datalemur.com/questions/pizzas-topping-cost|
 ||Fill Missing Client Data|JOIN, ROW_NUMBER()|Medium|https://datalemur.com/questions/fill-missing-product|
 ||Cities with completed trade|JOIN, GROUP BY|Easy|https://datalemur.com/questions/completed-trades|
+|Day8|Patient Support Analysis (Part 3)|CTE,LEAD/LAG|Hard|https://datalemur.com/questions/patient-call-history|
+||Average Review Ratings|GROUP BY,EXTRACT,AVG|Easy|https://datalemur.com/questions/sql-avg-review-ratings|
+||Frequently Purchased Pairs|SELF JOIN|Medium|https://datalemur.com/questions/frequently-purchased-pairs|
