@@ -27,3 +27,6 @@
 |Day8|Patient Support Analysis (Part 3)|CTE,LEAD/LAG|Hard|https://datalemur.com/questions/patient-call-history|
 ||Average Review Ratings|GROUP BY,EXTRACT,AVG|Easy|https://datalemur.com/questions/sql-avg-review-ratings|
 ||Frequently Purchased Pairs|SELF JOIN|Medium|https://datalemur.com/questions/frequently-purchased-pairs|
+|Day9|App Click-through Rate|GROUP BY,EXTRACT,COUNT|Easy|https://datalemur.com/questions/click-through-rate|
+||Supercloud Customer|JOIN,COUNT|Medium|https://datalemur.com/questions/supercloud-customer|
+||Patient Support Analysis (Part 4)|GROUP BY,LAG,CTE,EXTRACT|Hard|https://datalemur.com/questions/long-calls-growth|
