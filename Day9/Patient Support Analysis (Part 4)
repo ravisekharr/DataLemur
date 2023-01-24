@@ -1,0 +1,14 @@
+Problem: https://datalemur.com/questions/long-calls-growth
+
+Solution:
+WITH ct1 AS (SELECT EXTRACT(YEAR FROM call_received) as y,
+EXTRACT(MONTH FROM call_received) as m,
+call_duration_secs as t
+FROM callers),
+ct2 AS (SELECT y,m,COUNT(*) FILTER(WHERE t>300) AS c
+FROM ct1
+GROUP BY y,m
+ORDER BY y,m)
+
+SELECT y,m,ROUND(100.0*(c-LAG(c) OVER(ORDER BY y,m))/LAG(c) OVER(ORDER BY y,m),1) as c2
+FROM ct2
