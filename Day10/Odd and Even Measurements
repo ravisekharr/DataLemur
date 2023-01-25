@@ -1,0 +1,14 @@
+Problem: https://datalemur.com/questions/odd-even-measurements
+
+Solution:
+WITH ct1 AS(
+SELECT * ,
+ROW_NUMBER() OVER(PARTITION BY DATE(measurement_time) ORDER BY measurement_time) as r
+FROM measurements)
+
+SELECT DATE(measurement_time) as measurement_day,
+SUM(measurement_value) FILTER(WHERE r%2!=0) as odd_sum,
+SUM(measurement_value) FILTER(WHERE r%2=0) as even_sum
+FROM ct1
+GROUP BY DATE(measurement_time)
+ORDER BY measurement_day;
