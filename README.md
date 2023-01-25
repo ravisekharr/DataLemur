@@ -30,3 +30,6 @@
 |Day9|App Click-through Rate|GROUP BY,EXTRACT,COUNT|Easy|https://datalemur.com/questions/click-through-rate|
 ||Supercloud Customer|JOIN,COUNT|Medium|https://datalemur.com/questions/supercloud-customer|
 ||Patient Support Analysis (Part 4)|GROUP BY,LAG,CTE,EXTRACT|Hard|https://datalemur.com/questions/long-calls-growth|
+|Day10|Second Day Confirmation|JOIN,EXTRACT|Easy|https://datalemur.com/questions/second-day-confirmation|
+||Odd and Even Measurements|CTE,ROW_NUMBER,SUM,GROUP BY|Medium|https://datalemur.com/questions/odd-even-measurements|
+||Repeated Payments|CTE,LAG,EXTRACT|Hard|https://datalemur.com/questions/repeated-payments|
