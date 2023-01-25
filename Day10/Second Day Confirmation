@@ -1,0 +1,9 @@
+Problem: https://datalemur.com/questions/second-day-confirmation
+
+Solution:
+SELECT emails.user_id
+FROM emails
+JOIN texts
+on emails.email_id=texts.email_id
+WHERE signup_action='Confirmed'
+AND EXTRACT(DAY FROM action_Date-signup_date)=1 ;
