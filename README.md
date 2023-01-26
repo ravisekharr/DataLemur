@@ -33,3 +33,7 @@
 |Day10|Second Day Confirmation|JOIN,EXTRACT|Easy|https://datalemur.com/questions/second-day-confirmation|
 ||Odd and Even Measurements|CTE,ROW_NUMBER,SUM,GROUP BY|Medium|https://datalemur.com/questions/odd-even-measurements|
 ||Repeated Payments|CTE,LAG,EXTRACT|Hard|https://datalemur.com/questions/repeated-payments|
+|Day11|Compressed Mean|ROUND,SUM|Easy|https://datalemur.com/questions/alibaba-compressed-mean|
+||Compressed Mode|MAX|Medium|https://datalemur.com/questions/alibaba-compressed-mode|
+||Cards Issued Difference|MIN,MAX,GROUP BY|Easy|https://datalemur.com/questions/cards-issued-difference|
+||Card Launch Success|CTE,ROW_NUMBER,PARTITION BY|Medium|https://datalemur.com/questions/card-launch-success|
