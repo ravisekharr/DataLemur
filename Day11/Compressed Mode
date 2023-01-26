@@ -1,0 +1,7 @@
+Problem: https://datalemur.com/questions/alibaba-compressed-mode
+
+Solution:
+SELECT item_count 
+FROM items_per_order
+WHERE order_occurrences IN
+(SELECT MAX(order_occurrences) FROM items_per_order);
