@@ -37,3 +37,7 @@
 ||Compressed Mode|MAX|Medium|https://datalemur.com/questions/alibaba-compressed-mode|
 ||Cards Issued Difference|MIN,MAX,GROUP BY|Easy|https://datalemur.com/questions/cards-issued-difference|
 ||Card Launch Success|CTE,ROW_NUMBER,PARTITION BY|Medium|https://datalemur.com/questions/card-launch-success|
+|Day12|Histogram of Users and Purchases|CTE,PARTITION BY,RANK,GROUP BY|Medium|https://datalemur.com/questions/histogram-users-purchase|
+||International Call Percentage|CTE,JOIN|Medium|https://datalemur.com/questions/international-call-percentage|
+||Patient Support Analysis (Part 1)|GROUP BY,COUNT|Easy|https://datalemur.com/questions/frequent-callers|
+||Patient Support Analysis (Part 2)|FILTER,COUNT|Easy|https://datalemur.com/questions/uncategorized-calls-percentage|
