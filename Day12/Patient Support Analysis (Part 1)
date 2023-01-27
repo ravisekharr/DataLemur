@@ -1,0 +1,10 @@
+Problem: https://datalemur.com/questions/frequent-callers
+
+Solution:
+WITH ct1 AS (SELECT COUNT(*) AS C 
+FROM callers
+GROUP BY policy_holder_id)
+
+SELECT COUNT(*) as member_count
+FROM ct1
+WHERE C>=3;
