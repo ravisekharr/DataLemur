@@ -1,0 +1,6 @@
+Problem: https://datalemur.com/questions/uncategorized-calls-percentage
+
+Solution:
+SELECT ROUND(100.0*COUNT(*)
+FILTER (WHERE call_category IN ('n/a','') or call_category IS NULL)/COUNT(case_id),1)
+FROM callers
