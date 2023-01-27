@@ -1,0 +1,12 @@
+Problem: https://datalemur.com/questions/histogram-users-purchases
+
+Solution:
+WITH ct1 AS (SELECT transaction_date,user_id,
+RANK() OVER (PARTITION BY user_id ORDER BY transaction_date DESC) as r
+FROM user_transactions)
+
+SELECT transaction_date,user_id,COUNT(*) 
+FROM ct1
+where r=1
+GROUP BY transaction_date,user_id
+ORDER BY transaction_date,user_id;
