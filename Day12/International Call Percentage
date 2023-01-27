@@ -1,0 +1,17 @@
+Problem: https://datalemur.com/questions/international-call-percentage
+
+Solution:
+WITH ct1 AS (
+SELECT caller_id,receiver_id
+FROM phone_calls),
+ct2 AS (
+SELECT caller_id,country_id
+FROM phone_info)
+
+SELECT ROUND(100.0*COUNT(*) FILTER(WHERE ct2.country_id<>T1.country_id)/COUNT(*),1)
+FROM (SELECT * 
+FROM ct1
+LEFT JOIN ct2
+ON ct1.caller_id=ct2.caller_id)T1
+LEFT JOIN ct2
+ON ct2.caller_id=T1.receiver_id;
