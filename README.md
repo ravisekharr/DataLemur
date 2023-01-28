@@ -41,3 +41,6 @@
 ||International Call Percentage|CTE,JOIN|Medium|https://datalemur.com/questions/international-call-percentage|
 ||Patient Support Analysis (Part 1)|GROUP BY,COUNT|Easy|https://datalemur.com/questions/frequent-callers|
 ||Patient Support Analysis (Part 2)|FILTER,COUNT|Easy|https://datalemur.com/questions/uncategorized-calls-percentage|
+|Day13|Pharmacy Analytics (Part 1)|GROUP BY,LIMIT|Easy|https://datalemur.com/questions/top-profitable-drugs|
+||Pharmacy Analytics (Part 2)|GROUP BY,LIMIT|Easy|https://datalemur.com/questions/non-profitable-drugs|
+||Pharmacy Analytics (Part 3)|GROUP BY,CONCAT|Easy|https://datalemur.com/questions/total-drugs-sales|
