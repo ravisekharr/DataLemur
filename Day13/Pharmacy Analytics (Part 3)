@@ -1,0 +1,12 @@
+Problem: https://datalemur.com/questions/total-drugs-sales
+
+Solution:
+SELECT manufacturer,
+CONCAT('$',CAST(sale AS VARCHAR),' million')
+as sale
+FROM (
+SELECT manufacturer,
+ROUND(SUM(total_sales)/1000000,0) as sale
+FROM pharmacy_sales
+GROUP BY manufacturer
+ORDER BY sale DESC)T1;
