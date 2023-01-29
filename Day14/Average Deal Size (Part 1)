@@ -1,0 +1,6 @@
+Problem: https://datalemur.com/questions/sql-average-deal-size
+
+Solution:
+SELECT ROUND(AVG(c),2) FROM (
+SELECT num_seats*yearly_seat_cost as c 
+FROM contracts)T1;
