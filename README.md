@@ -44,3 +44,7 @@
 |Day13|Pharmacy Analytics (Part 1)|GROUP BY,LIMIT|Easy|https://datalemur.com/questions/top-profitable-drugs|
 ||Pharmacy Analytics (Part 2)|GROUP BY,LIMIT|Easy|https://datalemur.com/questions/non-profitable-drugs|
 ||Pharmacy Analytics (Part 3)|GROUP BY,CONCAT|Easy|https://datalemur.com/questions/total-drugs-sales|
+|Day14|Average Deal Size (Part 1)|AVG,ROUND|Easy|https://datalemur.com/questions/sql-average-deal-size|
+||Best-Selling Product|RANK,PARTITION BY,JOIN|Medium|https://datalemur.com/questions/best-selling-products|
+||Rolling 3-Day Earnings|RANGE BETWEEN PRECEDING CURRENT,PARTITION BY|Hard|https://datalemur.com/questions/sql-rolling-earnings|
+
