@@ -1,0 +1,13 @@
+Question: https://datalemur.com/questions/best-selling-products
+
+Solution:
+SELECT category_name,product_name
+FROM(
+SELECT *,
+RANK() OVER(PARTITION BY category_name ORDER BY sales_quantity DESC,rating DESC) as r
+FROM products
+LEFT JOIN
+product_sales
+ON products.product_id=product_sales.product_id)T1
+WHERE T1.r=1
+ORDER BY category_name;
