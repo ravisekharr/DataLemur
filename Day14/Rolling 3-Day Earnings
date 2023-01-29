@@ -1,0 +1,9 @@
+Problem: https://datalemur.com/questions/sql-rolling-earnings
+
+Solution:
+SELECT user_id,transaction_date,max(a)
+FROM(
+SELECT user_id,transaction_date,
+SUM(amount) OVER(PARTITION BY user_id ORDER BY transaction_date RANGE BETWEEN interval '2 day' PRECEDING AND CURRENT ROW) as a
+FROM user_transactions)T1
+GROUP BY user_id,transaction_date;
